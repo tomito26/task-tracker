@@ -2,12 +2,12 @@ import React from "react";
 import Task from "./Task";
 
 
-function Tasks({tasks}) {
+function Tasks({tasks,onDelete}) {
   
     return(
     <div>
         {tasks.map((task)=>(
-            <Task key={task.id} task={task} />
+            <Task key={task.id} task={task} onDelete={onDelete}/>
         ))}
     </div>
     );
