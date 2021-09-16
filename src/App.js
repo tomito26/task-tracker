@@ -1,6 +1,8 @@
 import { useState } from 'react';
 import Header from './components/Header'
 import Tasks from './components/Tasks';
+import React from 'react'
+
 
 function App() {
   const [tasks, setTasks] = useState([
@@ -23,8 +25,7 @@ function App() {
         day:"Feb 5th at 2.30pm",
         reminder:"false"
     }
-]
-)
+  ])
 
   return (
     <div className="container">
