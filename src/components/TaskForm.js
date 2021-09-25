@@ -13,6 +13,9 @@ const TaskForm = ({ onAdd }) =>{
             return
         }
         onAdd({ text,day,reminder });
+        setText("");
+        setDay("");
+        setReminder("");
 
     }
     return(
