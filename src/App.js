@@ -2,6 +2,9 @@ import { useState } from 'react';
 import Header from './components/Header'
 import Tasks from './components/Tasks';
 import React from 'react'
+import TaskForm from './components/TaskForm';
+
+
 
 
 function App() {
@@ -39,7 +42,7 @@ const toggleReminder = id =>{
   return (
     <div className="container">
       <Header  title="Task Tracker"/>
-
+      <TaskForm />
       {tasks.length > 0 ? <Tasks tasks = {tasks} onDelete={deleteTask} onToggle={toggleReminder} /> : "No Tasks To Show"}
     </div>
   );
