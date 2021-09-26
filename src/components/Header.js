@@ -1,15 +1,13 @@
 import Button from "./Button";
 import React from "react";
 
-function Header(){
-    const onClick = ()=>{
-        console.log("Welcome To ReactJs track")
-    }
+function Header({ onAdd,showForm }){
+ 
     return(
     <div>
         <header className="header">
             <h2>Task Tracker</h2>
-            <Button color='green' text="add"  onClick={onClick}/>
+            <Button color={showForm ? 'red':'green'} text={showForm ? 'close' : 'add'}  onClick={onAdd}/>
         </header>
       
 
