@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
 import Header from './components/Header'
 import Tasks from './components/Tasks';
 import React from 'react'
@@ -9,27 +9,24 @@ import TaskForm from './components/TaskForm';
 
 function App() {
   const[showForm,setForm] = useState(false)
-  const [tasks, setTasks] = useState([
-    {
-        id:1,
-        text:"Doctor's appointment",
-        day:"Feb 5th at 2.30",
-        reminder:true
-    },
-    {
-        id:2,
-        text:"Meeting at School",
-        day:"Feb 6th at 1.30pm",
-        reminder:true
-
-    },
-    {
-        id:3,
-        text:"Food shopping",
-        day:"Feb 5th at 2.30pm",
-        reminder:false
+  const [tasks, setTasks] = useState([])
+  useEffect(()=>{
+    const getTasks = async () =>{
+      const tasksFromServer = await fetchTasks()
+      setTasks(tasksFromServer)
     }
-  ])
+   
+    getTasks()
+  },[])
+
+  //Fetch Task from json server
+  const fetchTasks  = async () =>{
+    const response = await fetch(`http://localhost:5000/tasks`)
+    const data = await response.json()
+
+    return data
+
+  }
 
   //Add Tasks
   const addTask = (task)=>{
